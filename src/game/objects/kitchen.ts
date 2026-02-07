@@ -41,7 +41,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       scene,
       scene.cameras.main.centerX,
       scene.cameras.main.centerY,
-      "kitchen"
+      "kitchen",
     );
     scene.add.existing(this);
 
@@ -50,7 +50,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         scene.cameras.main.centerX,
         scene.cameras.main.centerY + 330,
         "Right Dish",
-        { backgroundColor: "black" }
+        { backgroundColor: "black" },
       )
       .setDepth(999)
       .setOrigin(0.5)
@@ -62,7 +62,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         scene.cameras.main.centerX,
         scene.cameras.main.centerY + 280,
         "Right Schedule",
-        { backgroundColor: "black" }
+        { backgroundColor: "black" },
       )
       .setDepth(999)
       .setOrigin(0.5)
@@ -73,7 +73,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       .image(
         scene.cameras.main.centerX + 25,
         scene.cameras.main.centerY,
-        "wrong-dish"
+        "wrong-dish",
       )
       .setAlpha(0)
       .setDepth(999)
@@ -100,9 +100,9 @@ export default class Kitchen extends Phaser.GameObjects.Image {
     cmpFn1: (dish: Dish, ticket: Ticket) => boolean,
     cmpFn2: (
       ticket: Ticket,
-      tickets: Ticket[]
+      tickets: Ticket[],
     ) => (boolean | Ticket | undefined)[],
-    tickets: Ticket[]
+    tickets: Ticket[],
   ) {
     if (this.service.dish && this.currentOrder.ticket) {
       const currTicket = this.currentOrder.ticket;
@@ -112,11 +112,11 @@ export default class Kitchen extends Phaser.GameObjects.Image {
 
       // cleanup
       const emptyHolderIdx = this.ticketHolders.findIndex(
-        (th) => th.ticket === null
+        (th) => th.ticket === null,
       );
 
       const tickIdx = tickets.findIndex(
-        (tick) => tick.arrivalTime === currTicket.arrivalTime
+        (tick) => tick.arrivalTime === currTicket.arrivalTime,
       );
 
       tickets.splice(tickIdx, 1);
@@ -207,7 +207,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
     return new Ticket(
       this.scene,
       this.ticketHolders[idx],
-      new Set<string>(ingredients)
+      new Set<string>(ingredients),
     );
   }
 
@@ -231,8 +231,8 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       : this.scheduleRes
           .setText(
             `The right one arrived ${Time.toSec(
-              nextTicket.elapsedTime
-            )}s ago with a ${Time.toSec(nextTicket.runtime)}s runtime!`
+              nextTicket.elapsedTime,
+            )}s ago with a ${Time.toSec(nextTicket.runtime)}s runtime!`,
           )
           .setColor("red");
 
@@ -285,7 +285,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
   initHolders() {
     for (let i = 0; i < 3; i++) {
       this.ticketHolders.push(
-        new TicketHolder(this.scene, 80 + 60 * i * 3, 75, 150, 320)
+        new TicketHolder(this.scene, 80 + 60 * i * 3, 75, 150, 320),
       );
     }
     this.currentOrder = new CurrentOrder(this.scene, 900, 110, 240, 240);
@@ -297,7 +297,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       this.scene.cameras.main.x + 10,
       this.scene.cameras.main.height - 385,
       "fridge-inside",
-      []
+      [],
     );
     this.fridge.setIngredients([
       new Ingredient(
@@ -307,7 +307,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         "milk",
         this.fridge,
         2,
-        this.metrics
+        this.metrics,
       ),
       new Ingredient(
         this.scene,
@@ -316,7 +316,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         "butter",
         this.fridge,
         1.5,
-        this.metrics
+        this.metrics,
       ),
       new Ingredient(
         this.scene,
@@ -325,7 +325,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         "chicken",
         this.fridge,
         4,
-        this.metrics
+        this.metrics,
       ),
     ]);
 
@@ -334,7 +334,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       this.scene.cameras.main.x + 10,
       this.scene.cameras.main.height - 130,
       "pantry-inside",
-      []
+      [],
     );
     this.pantry.setIngredients([
       new Ingredient(
@@ -344,7 +344,7 @@ export default class Kitchen extends Phaser.GameObjects.Image {
         "carrot",
         this.pantry,
         1,
-        this.metrics
+        this.metrics,
       ),
     ]);
   }
@@ -355,105 +355,105 @@ export default class Kitchen extends Phaser.GameObjects.Image {
       this.scene.cameras.main.centerX + 16,
       190,
       200,
-      100
+      100,
     );
     this.plating = new Plating(
       this.scene,
       this.scene.cameras.main.centerX + 20,
       this.scene.cameras.main.centerY + 120,
       190,
-      120
+      120,
     );
     this.stoves[0] = new Stove(
       this.scene,
       this.scene.cameras.main.centerX + 204,
       this.scene.cameras.main.height - 30,
       100,
-      120
+      120,
     );
     this.stoves[1] = new Stove(
       this.scene,
       this.scene.cameras.main.width - 295,
       this.scene.cameras.main.height - 30,
       100,
-      120
+      120,
     );
     this.preps[0] = new Prep(
       this.scene,
       this.scene.cameras.main.centerX - 192,
       this.scene.cameras.main.centerY - 30,
       90,
-      110
+      110,
     );
     this.preps[1] = new Prep(
       this.scene,
       this.scene.cameras.main.centerX - 192,
       this.scene.cameras.main.centerY + 120,
       90,
-      110
+      110,
     );
     this.preps[2] = new Prep(
       this.scene,
       this.scene.cameras.main.centerX + 222,
       this.scene.cameras.main.centerY - 38,
       110,
-      90
+      90,
     );
     this.preps[3] = new Prep(
       this.scene,
       this.scene.cameras.main.centerX + 233,
       this.scene.cameras.main.centerY + 120,
       90,
-      110
+      110,
     );
     this.preps[4] = new Prep(
       this.scene,
       this.scene.cameras.main.centerX - 13,
       this.scene.cameras.main.centerY - 38,
       110,
-      90
+      90,
     );
     this.sinks[0] = new Sink(
       this.scene,
       this.scene.cameras.main.width - 45,
       this.scene.cameras.main.centerY - 40,
       90,
-      140
+      140,
     );
     this.sinks[1] = new Sink(
       this.scene,
       this.scene.cameras.main.width - 45,
       this.scene.cameras.main.height - 150,
       90,
-      140
+      140,
     );
     this.ovens[0] = new Oven(
       this.scene,
       175,
       this.scene.cameras.main.height - 35,
       110,
-      75
+      75,
     );
     this.ovens[1] = new Oven(
       this.scene,
       293,
       this.scene.cameras.main.height - 35,
       120,
-      75
+      75,
     );
     this.ovens[2] = new Oven(
       this.scene,
       418,
       this.scene.cameras.main.height - 35,
       120,
-      75
+      75,
     );
     this.ovens[3] = new Oven(
       this.scene,
       this.scene.cameras.main.centerX - 100,
       this.scene.cameras.main.height - 35,
       110,
-      75
+      75,
     );
     this.ovens.forEach((oven) => {
       oven.setVolume(2); // Set volume for ovens

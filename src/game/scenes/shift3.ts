@@ -68,7 +68,7 @@ export default class Shift3 extends Phaser.Scene {
       this,
       this.cameras.main.width - 15,
       15,
-      ShiftController.LENGTH
+      ShiftController.LENGTH,
     );
 
     this.bell = this.add
@@ -82,17 +82,17 @@ export default class Shift3 extends Phaser.Scene {
           this.kitchen.submitDish(
             this.compareDishToTicket,
             this.compareTicketToAlgorithm,
-            this.tickets
+            this.tickets,
           );
           console.log(this.tickets);
         },
-        this
+        this,
       );
 
     this.dialog = new DialogBox(
       this,
       this.cameras.main.centerX - 20,
-      this.cameras.main.height - 110
+      this.cameras.main.height - 110,
     );
     this.dialog.setDialog(DIALOG3);
 
@@ -100,7 +100,7 @@ export default class Shift3 extends Phaser.Scene {
       .sprite(
         this.cameras.main.centerX,
         this.cameras.main.centerY,
-        "round-robin-obj"
+        "round-robin-obj",
       )
       .setScale(0.5);
 
@@ -109,13 +109,13 @@ export default class Shift3 extends Phaser.Scene {
       this.cameras.main.width - 210,
       200,
       "OBJECTIVE",
-      objSprite
+      objSprite,
     );
 
     const notes = this.add.sprite(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "notes"
+      "notes",
     );
 
     this.quantumTimer = this.add
@@ -123,7 +123,7 @@ export default class Shift3 extends Phaser.Scene {
         this.kitchen.currentOrder.x,
         this.kitchen.currentOrder.y - 90,
         "15s",
-        { color: "black" }
+        { color: "black" },
       )
       .setOrigin(0.5);
 
@@ -158,7 +158,7 @@ export default class Shift3 extends Phaser.Scene {
           `${(
             (QUANTUM - (time - ticket.holder.ticket.holderArrivalTime)) /
             1000
-          ).toFixed(0)}s`
+          ).toFixed(0)}s`,
         );
         if (
           Math.abs(time - ticket.holder.ticket.holderArrivalTime - QUANTUM) <=
@@ -174,7 +174,7 @@ export default class Shift3 extends Phaser.Scene {
           ticket.holder.ticket = ticket; // Set original holder's ticket to this
           ticket.setPosition(
             ticket.holder.x,
-            ticket.holder.y + (ticket.holder instanceof TicketHolder ? 60 : 0)
+            ticket.holder.y + (ticket.holder instanceof TicketHolder ? 60 : 0),
           ); // Snap back to original holder
           this.quantumTimer.setText("15s");
         }
@@ -191,7 +191,7 @@ export default class Shift3 extends Phaser.Scene {
   compareDishToTicket(dish: Dish, ticket: Ticket) {
     const res =
       dish.ingredients.every((ingrd) =>
-        ticket.requirements.has(`${ingrd.state} ${ingrd.name}`)
+        ticket.requirements.has(`${ingrd.state} ${ingrd.name}`),
       ) && dish.ingredients.length === ticket.requirements.size;
     return res;
   }
@@ -201,7 +201,7 @@ export default class Shift3 extends Phaser.Scene {
     const nxtTicket = tickets.reduce(
       (first, curr): Ticket =>
         curr.arrivalTime < first.arrivalTime ? curr : first,
-      tickets[0]
+      tickets[0],
     );
     return [ticket === nxtTicket, nxtTicket];
   }

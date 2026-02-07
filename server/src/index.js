@@ -8,9 +8,9 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(
-    express.urlencoded({
-        extended: true,
-    })
+  express.urlencoded({
+    extended: true,
+  }),
 );
 
 const users = require("./routes/users.js");
@@ -18,5 +18,5 @@ const users = require("./routes/users.js");
 app.use("/users", users);
 
 app.listen(port, () => {
-    console.log(`listening on ${port}`);
+  console.log(`listening on ${port}`);
 });
