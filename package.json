@@ -1,20 +1,20 @@
 {
-    "name": "schedulsine",
-    "version": "1.1.0",
-    "description": "Learn scheduling algorithms through cooking",
-    "homepage": "https://github.com/m-bocelli/schedulsine#readme",
-    "scripts": {
-        "dev": "bunx --bun vite --config vite/config.dev.mjs",
-        "build": "bunx --bun vite build --config vite/config.prod.mjs",
-        "dev-nolog": "bunx --bun vite --config vite/config.dev.mjs",
-        "build-nolog": "bunx --bun vite build --config vite/config.prod.mjs"
-    },
-    "devDependencies": {
-        "typescript": "~5.7.2",
-        "vite": "^6.3.1",
-        "terser": "^5.39.0"
-    },
-    "dependencies": {
-        "phaser": "^3.90.0"
-    }
+  "name": "schedulsine",
+  "version": "1.1.0",
+  "description": "Learn scheduling algorithms through cooking",
+  "homepage": "https://github.com/m-bocelli/schedulsine#readme",
+  "scripts": {
+    "dev": "bunx --bun vite --config vite/config.dev.mjs",
+    "build": "bunx --bun vite build --config vite/config.prod.mjs",
+    "dev-nolog": "bunx --bun vite --config vite/config.dev.mjs",
+    "build-nolog": "bunx --bun vite build --config vite/config.prod.mjs"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1",
+    "terser": "^5.39.0"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  }
 }
