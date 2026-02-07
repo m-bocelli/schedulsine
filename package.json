@@ -5,9 +5,7 @@
   "homepage": "https://github.com/m-bocelli/schedulsine#readme",
   "scripts": {
     "dev": "bunx --bun vite --config vite/config.dev.mjs",
-    "build": "bunx --bun vite build --config vite/config.prod.mjs",
-    "dev-nolog": "bunx --bun vite --config vite/config.dev.mjs",
-    "build-nolog": "bunx --bun vite build --config vite/config.prod.mjs"
+    "build": "bunx --bun vite build --config vite/config.prod.mjs"
   },
   "devDependencies": {
     "prettier": "^3.8.1",
